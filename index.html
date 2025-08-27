@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Service Directory</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+        integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-green-50">
+
+    <!-- Navbar -->
+    <nav class="flex flex-col md:flex-row justify-between items-center bg-white px-4 md:px-6 py-3 shadow">
+        <div class="flex items-center gap-2 mb-2 md:mb-0">
+            <img src="./assets/logo.png" alt="logo" class="w-8 h-8">
+            <h1 class="text-lg font-bold text-green-600">Emergency Service</h1>
+        </div>
+        <div class="flex gap-4 items-center">
+            <span class="text-red-500 flex items-center gap-1">
+                <img src="./assets/heart.png" alt="" class="w-6 h-6 md:w-8 md:h-8"> 0
+            </span>
+            <span class="text-yellow-500 flex items-center gap-1">
+                <img src="./assets/coin.png" alt="" class="w-6 h-6 md:w-8 md:h-8">
+                <p id="coin"></p>
+            </span>
+            <button class="bg-green-500 text-white px-3 py-1 rounded-lg"><span id="copyCount"></span> Copy</button>
+        </div>
+    </nav>
+
+    <!-- Header Banner -->
+    <header class="bg-green-700 text-white text-center py-8 md:py-10">
+        <img src="./assets/logo-dark.png" class="w-16 mx-auto mb-3">
+        <h2 class="text-2xl font-bold">Emergency Service Directory</h2>
+        <p class="text-sm px-4 md:px-0">Government Emergency Services at Your Fingertip - A Project by Government of the
+            People's
+            Republic of Bangladesh</p>
+    </header>
+
+    <!-- Main Content -->
+    <main class="grid grid-cols-1 md:grid-cols-4 gap-6 p-4 md:p-6">
+
+        <!-- Left Section (Cards) -->
+        <div class="col-span-1 md:col-span-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+
+            <!-- Card Template -->
+            <div class="bg-white rounded-xl shadow p-4">
+                <!-- <div class="flex items-center justify-between"> -->
+                <!-- <div class="flex items-center gap-2"> -->
+                <div class="flex justify-between rounded-lg">
+                    <div class="bg-red-100 rounded-lg h-10 w-10">
+                        <img src="./assets/emergency.png" alt="">
+                    </div>
+                    <p><i class="fa-regular fa-heart"></i></p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-gray-800">National Emergency Number</h3>
+                    <p class="text-sm text-gray-500">National Emergency</p>
+                </div>
+                <!-- </div> -->
+                <!-- </div> -->
+                <p class="text-2xl font-bold my-3">999</p>
+                <span class="bg-gray-100 text-xs px-2 py-1 rounded">All</span>
+                <div class="flex gap-2 mt-4">
+                    <button class="flex-1 border rounded-lg py-1"><i class="fa-solid fa-copy"></i>Copy</button>
+                    <button class="flex-1 bg-green-500 text-white rounded-lg py-1" onclick="calculateCoin()"><i
+                            class="fa-solid fa-phone"></i>Call</button>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+
+        <!-- Right Section (Call History) -->
+        <div class="col-span-1 bg-white rounded-xl shadow p-4">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-3">
+                <h4 class="font-bold text-center md:text-left">Call History</h4>
+                <button class="text-sm text-green-500 mt-2 md:mt-0">Clear</button>
+            </div>
+            <ul class="space-y-2 text-sm">
+                <li class="flex justify-between border-b p-5 bg-gray-100 rounded-lg">
+
+                    <div class="flex flex-col">
+                        <span class="font-bold">Fire Service Number</span>
+                        <span class="text-gray-800 font-semibold">999</span>
+                    </div>
+
+                    <span class="text-gray-500 text-xs self-center">11:36:58 AM</span>
+                </li>
+            </ul>
+        </div>
+
+
+
+    </main>
+    <!-- js section -->
+    <script>
+        var coin = document.querySelector("#coin");
+        var copyCount = document.querySelector("#copyCount");
+        var availableCoin = 40;
+        coin.textContent = availableCoin;
+        function calculateCoin() {
+            if (availableCoin > 19) {
+                availableCoin = availableCoin - 20;
+                msg = "Calling";
+            } else {
+                msg = "You dont have enough coin for calling."
+            }
+            alert(msg);
+
+            coin.textContent = availableCoin;
+        }
+
+    </script>
+</body>
+
+</html>
