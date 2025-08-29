@@ -7,9 +7,10 @@ let availableCoin = 100;
 let heart = 0;
 let copyCounter = 0;
 coin.textContent = availableCoin;
-const historyArray = [];
+let historyArray = [];
 const cardData = [
   {
+    id: "nem",
     name: "National Emergency Number",
     article: "National Emergency",
     number: "999",
@@ -17,6 +18,7 @@ const cardData = [
     icon: "./assets/emergency.png",
   },
   {
+    id: "phn",
     name: "Police Helpline Number",
     article: "Police",
     number: "999",
@@ -24,6 +26,7 @@ const cardData = [
     icon: "./assets/police.png",
   },
   {
+    id: "fsn",
     name: "Fire Service Number",
     article: "Fire Service",
     number: "999",
@@ -31,6 +34,7 @@ const cardData = [
     icon: "./assets/fire-service.png",
   },
   {
+    id: "as",
     name: "Ambulance Service",
     article: " Ambulance",
     number: "1994-999999",
@@ -38,6 +42,7 @@ const cardData = [
     icon: "./assets/ambulance.png",
   },
   {
+    id: "wch",
     name: "Women & Child Helpline",
     artile: "Women & Child helpline",
     number: "109",
@@ -45,6 +50,7 @@ const cardData = [
     icon: "./assets/hart.png",
   },
   {
+    id: "ach",
     name: "Anti-Corruption Helpline",
     artilce: "Anti-Corruption",
     number: "106",
@@ -52,6 +58,7 @@ const cardData = [
     icon: "./assets/emergency.png",
   },
   {
+    id: "eh",
     name: "Electricty Helpline",
     article: "Electricty Outage",
     number: "16216",
@@ -59,6 +66,7 @@ const cardData = [
     icon: "./assets/emergency.png",
   },
   {
+    id: "bh",
     name: "Brac Helpline",
     article: "Brac",
     number: "16445",
@@ -66,6 +74,7 @@ const cardData = [
     icon: "./assets/brac.png",
   },
   {
+    id: "brh",
     name: "Bangladesh Railway Helpline",
     article: "Bangladesh Railway",
     number: "163",
@@ -83,7 +92,7 @@ cardContainer.innerHTML = cardData
           <div class="bg-red-100 rounded-lg h-10 w-10 flex items-center justify-center">
             <img src="${card.icon}" alt="" class="w-6 h-6">
           </div>
-          <i class="fa-regular fa-heart heart text-gray-400 cursor-pointer"></i>
+         <button onclick="wishList('${card.id}')" class="${card.id}_cls"><i class="fa-regular fa-heart heart  cursor-pointer"></i></button> 
         </div>
         <div class="mt-2">
           <h3 class="font-bold text-gray-800">${card.name}</h3>
@@ -126,7 +135,6 @@ function calling(name, number) {
 }
 
 function renderHistory() {
-  
   historyList.innerHTML = historyArray
     .map(
       (history) => `<div class="flex flex-col">
@@ -136,4 +144,19 @@ function renderHistory() {
           <span class="text-gray-500 text-xs self-center">${history.time}</span>`
     )
     .join("");
+}
+
+function wishList(id) {
+  const selectedId = document.querySelector("." + id + "_cls");
+  const addedHeart = selectedId.classList.toggle("active");
+  if (addedHeart) {
+    heart++;
+  } else {
+    heart--;
+  }
+  heartCount.innerText = heart;
+}
+function clearHistory() {
+  historyArray = [];
+  renderHistory();
 }

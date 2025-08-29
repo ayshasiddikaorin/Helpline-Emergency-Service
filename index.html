@@ -9,6 +9,7 @@
         integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="bg-green-50">
@@ -55,7 +56,8 @@
             <div class="flex justify-between items-center mb-3">
                 <h4 class="font-bold text-center md:text-left flex items-center gap-2"><i class="fa-solid fa-clock"></i>
                     Call History</h4>
-                <button class="text-sm text-white-500 bg-green-500 rounded" id="clearHistory">Clear</button>
+                <button class="text-sm text-white-500 bg-green-500 rounded" id="clearHistory"
+                    onclick="clearHistory()">Clear</button>
             </div>
             <ul class="space-y-2 text-sm" id="historyList"></ul>
         </div>
