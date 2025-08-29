@@ -18,20 +18,20 @@
     <nav class="flex flex-col md:flex-row justify-between items-center bg-white px-4 md:px-6 py-3 shadow">
         <div class="flex items-center gap-2 mb-2 md:mb-0">
             <img src="./assets/logo.png" alt="logo" class="w-8 h-8">
-            <h1 class="text-lg font-bold text-green-600">Emergency Service</h1>
+            <h1 class="text-lg font-bold text-green-600">Emergency <br>Service</h1>
         </div>
         <div class="flex gap-4 items-center">
-            <span class="text-red-500 flex items-center gap-1">
+            <span class="text-red-500 flex items-center gap-1 px-3 py-1 rounded-full bg-green-50">
                 <span id="heartCount">0</span>
                 <img src="./assets/heart.png" alt="" class="w-6 h-6 md:w-8 md:h-8">
 
             </span>
-            <span class="text-yellow-500 flex items-center gap-1">
+            <span class="text-yellow-500 flex items-center gap-1 px-3 py-1 rounded-full bg-green-50 ">
                 <span id="coin">100</span>
                 <img src="./assets/coin.png" alt="" class="w-6 h-6 md:w-8 md:h-8">
 
             </span>
-            <button class="bg-gradient-to-r from-emerald-400 to-green-600 text-white px-3 py-1 rounded-lg"><span
+            <button class="bg-green-500 text-white px-3 py-1 rounded-lg"><span
                     id="copyCount">0</span> Copy</button>
         </div>
     </nav>
@@ -54,9 +54,9 @@
         <!-- Call History Section -->
         <div class="col-span-1 bg-white rounded-xl shadow p-4">
             <div class="flex justify-between items-center mb-3">
-                <h4 class="font-bold text-center md:text-left flex items-center gap-2"><i class="fa-solid fa-clock"></i>
+                <h4 class="font-bold text-center md:text-left flex items-center gap-2"><i class="fa-solid fa-clock text-gray-400"></i>
                     Call History</h4>
-                <button class="text-sm text-white-500 bg-green-500 rounded" id="clearHistory"
+                <button class="text-sm text-white-500 bg-green-500 rounded-full p-2 w-20 text-white " id="clearHistory"
                     onclick="clearHistory()">Clear</button>
             </div>
             <ul class="space-y-2 text-sm" id="historyList"></ul>
