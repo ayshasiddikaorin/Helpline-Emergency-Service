@@ -1,12 +1,13 @@
-let coin = document.querySelector("#coin");
+let coinCount = document.querySelector("#coin");
 let copyCount = document.querySelector("#copyCount");
 let heartCount = document.querySelector("#heartCount");
 let cardContainer = document.querySelector("#cardsContainer");
+let historyList = document.querySelector("#historyList");
 let availableCoin = 100;
 let heart = 0;
 let copyCounter = 0;
 coin.textContent = availableCoin;
-
+const historyArray = [];
 const cardData = [
   {
     name: "National Emergency Number",
@@ -109,7 +110,30 @@ function calling(name, number) {
   if (availableCoin > 0) {
     availableCoin = availableCoin - 20;
     alert("Calling " + name + " " + number);
+    coinCount.innerText = availableCoin;
+    const now = new Date();
+    const time = now.toLocaleTimeString();
+
+    historyArray.push({
+      name: name,
+      number: number,
+      time: time,
+    });
+    renderHistory();
   } else {
     alert("You Dont have enough Coin For calling");
   }
+}
+
+function renderHistory() {
+  
+  historyList.innerHTML = historyArray
+    .map(
+      (history) => `<div class="flex flex-col">
+              <span class="font-bold">${history.name}</span>
+              <span class="text-gray-800 font-semibold">${history.number}</span>
+          </div>
+          <span class="text-gray-500 text-xs self-center">${history.time}</span>`
+    )
+    .join("");
 }
